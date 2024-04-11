@@ -49,7 +49,7 @@ mongoose
   });
 
 app.post(
-  "/api/tickets",
+  "/api/create",
   async (
     req: { body: any },
     res: {
@@ -104,7 +104,7 @@ app.get(
   }
 );
 app.get(
-  "/api/ticket/:id",
+  "/api/getrecordusingid/:id",
   async (
     req: { params: { id: any } },
     res: {
@@ -163,7 +163,7 @@ app.post(
 );
 
 app.put(
-  "/api/ticket/:id",
+  "/api/changedata/:id",
   async (
     req: { params: { id: any }; body: any },
     res: {
@@ -190,7 +190,7 @@ app.put(
   }
 );
 app.delete(
-  "/api/ticket/:id",
+  "/api/removerecord/:id",
   async (
     req: { params: { id: any } },
     res: {
@@ -206,7 +206,7 @@ app.delete(
       if (!ticket) {
         res.status(404).json({ message: "No Ticket found with this id!" });
       } else {
-        res.status(200).json({ message: "Deleted Ticket" });
+        res.status(200).json({ message: "Deleted Record" });
       }
     } catch (error: any) {
       res.status(500).json({ message: error?.message });
